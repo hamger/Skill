@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title> new document </title>
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
+    <style>
+    tr:hover {
+        background-color: red;
+    }
+    </style>
+    <script type="text/javascript">
+    //创建添加函数
+    function add() {
+        var num = 2;
+        num++;
+        var tr = document.createElement("tr");
+        var tab = document.getElementById("table");
+
+        tr.innerHTML = "<td>xh00" + num + '</td><td>第' + num + "学生</td><td><a href='javascript:;' onclick='del(this)' >删除</a></td>";
+        tab.appendChild(tr);
+    }
+
+    // 创建删除函数
+    function del(obj) {
+        var tr = obj.parentNode.parentNode;
+        tr.parentNode.removeChild(tr);
+    }
+    </script>
+</head>
+
+<body>
+    <table border="1" width="50%" id="table">
+        <tr>
+            <th>学号</th>
+            <th>姓名</th>
+            <th>操作</th>
+        </tr>
+        <tr>
+            <td>xh001</td>
+            <td>王小明</td>
+            <td><a href="javascript:;" onclick="del(this)">删除</a></td>
+            <!--在删除按钮上添加点击事件  -->
+        </tr>
+        <tr>
+            <td>xh002</td>
+            <td>刘小芳</td>
+            <td><a href="javascript:;" onclick="del(this)">删除</a></td>
+            <!--在删除按钮上添加点击事件  -->
+        </tr>
+    </table>
+    <input type="button" value="添加一行" onclick="add()" />
+    <!--在添加按钮上添加点击事件  -->
+</body>
+
+</html>
